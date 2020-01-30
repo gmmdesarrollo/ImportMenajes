@@ -1,0 +1,59 @@
+<ion-header no-border>
+  <ion-toolbar color="primary" >
+    <ion-title class="centrado">Articulos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Atras" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="crear()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab>
+
+  <ion-list #lista>
+
+    <ion-item-sliding *ngFor="let art of articulos | async">
+
+      <ion-item >
+        <ion-label>
+          
+          <h3>{{ art.nombre }}</h3>
+
+          <p>
+            {{ art.codigobarras }}
+          </p>
+                                                                                                                                              
+          <ion-label slot = "end" text = "right">
+            {{ art.cantidad }}
+          </ion-label>
+
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="start" > 
+        <ion-item-option color="light" (click)="actualizar(art)">
+          <ion-icon slot = "icon-only" name="sync"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="eliminar(art)">
+          <ion-icon slot = "icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header no-border>
+    <ion-toolbar color="primary" >
+      <ion-title class="centrado">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-img src="assets/logogmm.png"></ion-img>
+  
+    <ion-item>
+      <ion-label>
+        Email
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>
+        Password
+      </ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" ></ion-input>
+    </ion-item>
+
+      <ion-button class ="centradomargenes" size="medium" (click)="onLogin()" color=primary expand = "full">Login</ion-button>
+      <ion-button class ="centradomargenes" size="medium" routerLink="/register" color=primary expand = "full">Registrar</ion-button>
+
+    </ion-content>
+  
